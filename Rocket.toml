@@ -1,0 +1,6 @@
+[global]
+address = "0.0.0"
+
+[global.databases.postgres_log]
+url = "postgres://root:password@db/people-logger"
+pool_size = 10
