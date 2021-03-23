@@ -1,13 +1,12 @@
-use diesel::sql_types::Timestamp;
 use super::schema::counts;
 use chrono::NaiveDateTime;
 
 #[derive(Queryable)]
 pub struct Count {
-    pub id: u64,
+    pub id: i32,
     pub device_name: String,
-    pub num_of_people: i64,
-    pub recorded_at: Timestamp,
+    pub num_of_people: i32,
+    pub recorded_at: NaiveDateTime,
 }
 
 #[derive(Insertable)]

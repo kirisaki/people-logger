@@ -1,5 +1,5 @@
 [global]
-address = "0.0.0"
+address = "0.0.0.0"
 
 [global.databases.postgres_log]
 url = "postgres://root:password@db/people-logger"
