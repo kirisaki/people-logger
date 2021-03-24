@@ -64,7 +64,7 @@ fn actcast(conn: DBConn, cast: Json<Incoming>) -> status::Accepted<content::Json
 fn get_device_data(conn: DBConn, name: String) -> Result<Json<DataResponse>, status::NotFound<content::Json<&'static str>>> {
     use schema::counts::dsl::*;
 
-    let data = counts.filter(device_name.eq(name)).limit(100).load::<Count>(&*conn).expect("Error loading counts");
+    let data = counts.filter(device_name.eq(name)).order(recorded_at.desc()).limit(100).load::<Count>(&*conn).expect("Error loading counts");
     if data.len() == 0 {
         Err(status::NotFound(content::Json("{\"message\":\"Device not found\"}")))
     } else {
